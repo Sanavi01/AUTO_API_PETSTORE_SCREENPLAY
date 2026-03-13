@@ -19,11 +19,10 @@ public class ConsultarMascota implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Get.resource(Constantes.ENDPOINT_PET + "/" + id)
-        );
+                Get.resource(Constantes.ENDPOINT_PET + "/" + id));
     }
 
-    public static ActualizarMascota conId(String id) {
-        return Tasks.instrumented(ActualizarMascota.class, id);
+    public static ConsultarMascota conId(String id) {
+        return new ConsultarMascota(id);
     }
 }
